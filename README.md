@@ -6,13 +6,9 @@ This is a platform to manage the Automation Program for RISE.
 
 Automation is a Technology-department program at RISE. Mission: build digital intelligence infrastructure (automation + business intelligence + network intelligence) so RISE can operate at scale with precision and agility, while delivering faster, more reliable connectivity to Philippine businesses.
 
-Read more: [About Automation Program](docs/kb/About%20Automation%20Program.md)
-
 ## About RISE
 
 RISE is a business-only fiber internet ISP based in the Philippines, with a mission to accelerate internet access across the country by delivering high-quality, reliable fiber connectivity exclusively to enterprises, government institutions, and educational organizations.
-
-Read more: [About RISE](docs/kb/About%20RISE.md)
 
 ## About this platform
 
@@ -22,15 +18,28 @@ This platform serves as a centralized hub for managing the Automation Program at
 - Develop opportunities, initiatives, and objectives
 - Track performance and impact of automation efforts
 
+## Sub-Programs
+
+The Automation Program is organized into four Sub-Programs, each with its own goals and execution focus:
+
+- **Artificial Intelligence** — `program-files/programs/artificial-intelligence/`
+- **Business Intelligence** — `program-files/programs/business-intelligence/`
+- **Enterprise Automation** — `program-files/programs/enterprise-automation/`
+- **Network Intelligence** — `program-files/programs/network-intelligence/`
+
+The program-wide mission is recorded in `program-files/Mission.md`.
+
 ## Technology Stack of this platform
 
-This is primarily a Markdown-down knowledge base and workflows platform. It includes scripts to manage content and files in this project.
+This is primarily a Markdown-based knowledge base and workflows platform. It includes scripts to manage content and files in this project.
 
-Knowledge base content is published as a standalone website, using Astro as the static site generator, self-hosted in our own AWS cloud environment.
+Program-of-record content under `program-files/` (the Mission and per-Sub-Program documents) is published as a standalone website using Astro as the static site generator, self-hosted in our own AWS cloud environment, and is also published to our Confluence company account via the Atlassian MCP tool. The same `program-files/` content is co-edited in Google Docs via the Google Drive MCP tool.
 
-In addition some contents are also published in our Confluence and JIRA company account, using the Atlassian MCP tool.
+Knowledge base content under `docs/kb/` is internal context only — it is not published.
 
 Key technologies used:
-- Typescript
-- NodeJS
+- TypeScript
+- Node.js
 - Astro
+- MCP tool: Atlassian
+- MCP tool: Google Drive

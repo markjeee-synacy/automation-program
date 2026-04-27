@@ -29,19 +29,26 @@
 - **Roadmap:** A phased plan that progressively develops the organization's automation capability and capacity, anchored to a defined target vision.
 - **Maturity Assessment:** An evaluation of RISE's current state of automation capability used as the baseline for the roadmap.
 - **KPI:** A defined performance measure (cost savings, efficiency gains, error reduction) used to track the impact of an initiative.
-- **Knowledge Base (KB):** The Markdown content under `docs/kb/` that records program context, decisions, and reference material. Selected KB content is published to the Astro site, Confluence, and JIRA.
+- **Knowledge Base (KB):** The Markdown content under `docs/kb/` that records program context, decisions, and reference material. KB content is internal — it is not published to external surfaces.
+- **Sub-Program:** A named focus area within the Automation Program. Currently four: Artificial Intelligence, Business Intelligence, Enterprise Automation, and Network Intelligence. Each Sub-Program has its own goals and may produce its own Opportunities, Initiatives, and KPIs. Sub-Program documents live under `program-files/programs/<sub-program>/` and are published to the Astro site and Confluence, and co-edited via Google Docs.
+- **Mission:** The Automation Program's stated purpose, recorded in `program-files/Mission.md`. Published to the Astro site and Confluence, and co-edited via Google Docs. The Roadmap and Sub-Programs derive their direction from the Mission.
 
 ### Ontology
 
 - **Class: Program** — The Automation Program itself. The project owns exactly one.
+- **Class: Sub-Program** — A focus area within the Program. Currently four instances: Artificial Intelligence, Business Intelligence, Enterprise Automation, Network Intelligence. Recorded under `program-files/programs/<sub-program>/`.
 - **Class: Function** — A Program Function (one of the five). Belongs to the Program.
-- **Class: Opportunity** — Belongs to a Function (typically Opportunity Identification & Development).
-- **Class: Initiative** — Derived from an approved Opportunity. Owned by Initiative Management & Cross-Functional Execution.
+- **Class: Opportunity** — Belongs to a Function (typically Opportunity Identification & Development) and is associated with a Sub-Program.
+- **Class: Initiative** — Derived from an approved Opportunity. Owned by Initiative Management & Cross-Functional Execution; tagged to its Sub-Program.
 - **Class: KPI** — Attached to an Initiative; rolls up to Performance Tracking & Continuous Improvement.
 - **Class: Roadmap Item** — Owned by Strategy & Roadmap Development; sequences Initiatives over time.
+- **Class: Mission** — The Program's stated purpose. Exactly one, recorded in `program-files/Mission.md`.
 - **Class: KB Page** — Markdown artifact under `docs/kb/`. May describe any of the above classes.
+- Program → contains → Sub-Programs.
 - Program → produces → Roadmap (via Strategy & Roadmap Development).
 - Function → discovers → Opportunity → becomes → Initiative → measured by → KPI.
+- Sub-Program → scopes → Opportunities, Initiatives, KPIs.
+- Mission → anchors → Program direction; Sub-Programs and Roadmap derive from it.
 - KB Page → records → any class above.
 
 ### Axioms
@@ -51,14 +58,14 @@
 - Every Initiative has at least one KPI; performance claims without a defined KPI are unsupported.
 - The Roadmap reflects the current Maturity Assessment plus the target vision; changes to either propagate to the Roadmap.
 - Governance, Standards & Reusability constrains all other Functions — reusable frameworks and standards take precedence over one-off solutions.
-- The Knowledge Base is the system of record for program meaning; downstream publishing (Astro, Confluence, JIRA) reflects the KB, not the other way around.
+- `program-files/` (Mission and Sub-Program documents) is the system of record for what is published; downstream publishing (Astro, Confluence) and Google Docs co-editing reflect `program-files/`, not the other way around. The Knowledge Base under `docs/kb/` is internal context and is not published.
 
 ### Epistemology
 
 - A claim about a Program Function is supported when it cites `docs/kb/About Automation Program.md` or a successor KB page that defines the function.
 - A claim about an Opportunity or Initiative is supported only when a KB page or workflow artifact records it; otherwise the claim is `missing`.
 - A KPI value is supported only when its definition and measurement source are both recorded; a number without a defined measurement is `unknown`.
-- Conflicts between KB content and downstream published copies (Astro, Confluence, JIRA) resolve in favor of the KB until the conflict is reconciled explicitly.
+- Conflicts between `program-files/` content and downstream published copies (Astro, Confluence) resolve in favor of `program-files/` until reconciled explicitly. For Google Docs (co-edited), conflicts must be resolved with explicit developer direction since the sync is bidirectional.
 - Absence of a KB page about a topic is `missing`, not `false` — the program may simply not have addressed it yet.
 
 ### Evaluation Outputs
@@ -66,14 +73,14 @@
 - **supported:** A KB page or workflow artifact records the claim and its derivation.
 - **missing:** No KB page or workflow artifact records the claim yet.
 - **unknown:** Artifacts exist but cannot be interpreted confidently (e.g., a KPI number with no measurement definition).
-- **conflicted:** KB content and a downstream published copy disagree and the source of truth has not yet been reconciled.
+- **conflicted:** `program-files/` content and a downstream published or co-edited copy (Astro, Confluence, Google Docs) disagree and the source of truth has not yet been reconciled.
 
 ## Automation Program Platform Development
 
 ### Domain Boundary
 
 - **Purpose:** Covers the meaning of the platform that hosts the Automation Program — the repository itself, its AIDE-based AI Harness configuration, the knowledge base directory, architecture docs, and design patterns that together make the program operable by Developers and Agents.
-- **In scope:** AIDE components (agents, skills, plugins, hooks, output styles), project entry files (`AGENTS.md`, `WORLDVIEW.md`, `RULES.md`, `CLAUDE.md`, `GEMINI.md`), platform documentation (`docs/architecture/`, `docs/patterns/`), the knowledge base directory (`docs/kb/`) as a hosted content surface, and the publishing pipelines that move KB content to Astro, Confluence, and JIRA.
+- **In scope:** AIDE components (agents, skills, plugins, hooks, output styles), project entry files (`AGENTS.md`, `WORLDVIEW.md`, `RULES.md`, `CLAUDE.md`, `GEMINI.md`), platform documentation (`docs/architecture/`, `docs/patterns/`), the knowledge base directory (`docs/kb/`) and program-files directory (`program-files/`) as hosted content surfaces, and the pipelines that publish `program-files/` to Astro and Confluence and synchronize them with Google Docs.
 - **Out of scope:** Program semantics of KB content (Opportunities, Initiatives, KPIs) — those belong to the Automation Program domain. RISE's customer-facing products are also out of scope.
 
 ### Terminology
@@ -85,7 +92,7 @@
 - **Project Entry File:** One of `AGENTS.md`, `WORLDVIEW.md`, `RULES.md`, or the platform wrappers `CLAUDE.md` and `GEMINI.md` that bootstrap an AI Harness session.
 - **Architecture Doc:** A Markdown file under `docs/architecture/` that records Platform structure, integration points, or deployment topology.
 - **Design Pattern:** A reusable solution recorded under `docs/patterns/` describing how a recurring Platform problem should be solved.
-- **Publishing Pipeline:** Content management scripts that transform KB pages into the Astro site, Confluence pages, and JIRA tickets.
+- **Publishing Pipeline:** Content management scripts that transform `program-files/` artifacts (Mission, Sub-Programs) into the Astro site and Confluence pages (one-way), and synchronize them with Google Docs (bidirectional, via the Google Drive MCP). KB content under `docs/kb/` is not part of the Publishing Pipeline.
 
 ### Ontology
 
@@ -94,12 +101,13 @@
 - **Class: Project Entry File** — A bootstrap Markdown file (`AGENTS.md`, `WORLDVIEW.md`, `RULES.md`, `CLAUDE.md`, `GEMINI.md`).
 - **Class: Architecture Doc** — Markdown artifact under `docs/architecture/`.
 - **Class: Design Pattern** — Markdown artifact under `docs/patterns/`.
-- **Class: KB Directory** — `docs/kb/`, a hosted content surface; its pages are KB Pages in the Automation Program domain.
-- **Class: Publishing Pipeline** — Scripted transform from KB Page to Astro, Confluence, and JIRA targets.
-- Platform → contains → AIDE Components, Project Entry Files, Architecture Docs, Design Patterns, KB Directory.
+- **Class: KB Directory** — `docs/kb/`, an internal hosted content surface; its pages are KB Pages in the Automation Program domain. Not published.
+- **Class: Program-Files Directory** — `program-files/`, the hosted content surface for program-of-record artifacts (Mission, Sub-Programs); the source for the Publishing Pipeline.
+- **Class: Publishing Pipeline** — Scripted transform from `program-files/` to Astro and Confluence (one-way), and bidirectional sync with Google Docs.
+- Platform → contains → AIDE Components, Project Entry Files, Architecture Docs, Design Patterns, KB Directory, Program-Files Directory.
 - Project Entry File → loads → AIDE Components into an AI Harness session.
 - Architecture Doc → describes → Platform structure; Design Pattern → constrains → AIDE Component implementation.
-- Publishing Pipeline → reads → KB Directory → writes → Astro, Confluence, JIRA.
+- Publishing Pipeline → reads → Program-Files Directory → writes → Astro, Confluence (one-way); syncs ↔ Google Docs (bidirectional).
 
 ### Axioms
 
@@ -108,7 +116,7 @@
 - `AGENTS.md` is the vendor-neutral entry point; `CLAUDE.md` and `GEMINI.md` are thin wrappers that import it.
 - Architecture Docs describe the Platform; they do not encode program semantics or operating rules — those live in `WORLDVIEW.md` and `RULES.md` respectively.
 - Design Patterns express reusable structure; a one-off implementation that diverges from a recorded Pattern requires explicit justification.
-- The Publishing Pipeline is one-way: KB → external surfaces. External edits are not pulled back without an explicit reconciliation step.
+- The Publishing Pipeline reads from `program-files/`, never from `docs/kb/`. Astro and Confluence outputs are one-way (external edits there are not pulled back without an explicit reconciliation step). Google Docs sync is bidirectional and requires explicit developer direction to resolve conflicts.
 
 ### Epistemology
 

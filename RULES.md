@@ -1,6 +1,21 @@
 # Project Rules
 
-<!-- Add project-specific rules and constraints here. -->
+## Project-Specific Rules
+
+### Program-of-Record Artifacts
+- `program-files/Mission.md` and `program-files/programs/<sub-program>/*.md` are program-of-record. Treat edits as program-meaning changes, not docs cleanup. Confirm with the developer before renaming, restructuring, or deleting.
+- Adding a new Sub-Program directory under `program-files/programs/` is a worldview-affecting change. Confirm with the developer and update `WORLDVIEW.md` (Sub-Program terminology + ontology) in the same change.
+
+### Publishing and Co-Editing
+- The Atlassian MCP writes to live Confluence pages and JIRA issues. Treat any `mcp__claude_ai_Atlassian__*` write tool (create/edit/comment/transition) as an external-facing action — confirm with the developer before invoking.
+- The Google Drive MCP can read and write Google Docs that are co-edited with `program-files/`. Treat any `mcp__claude_ai_Google_Drive__*` write tool as an external-facing action — confirm with the developer before invoking.
+- `program-files/` is the source of truth for what is published to Astro and Confluence and synced with Google Docs. Never reconcile a Confluence, Astro, or Google Docs copy back to `program-files/` without explicit developer direction.
+
+### Program-Files Edits
+- Bulk renames or deletions under `program-files/` may break the Publishing Pipeline (Astro routes, Confluence pages, Google Docs sync mappings). Confirm with the developer before bulk operations.
+
+### Knowledge Base Edits
+- Edits to `docs/kb/` are internal-only and have no publishing side-effects. Bulk renames or deletions still warrant developer confirmation because internal cross-references and AGENTS.md/WORLDVIEW.md citations may break.
 
 <!-- AIDE:RULES:START -->
 ## AIDE Operating Rules

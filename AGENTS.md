@@ -21,10 +21,17 @@ automation-program/
 ├── .gemini/agents/            # Gemini CLI agents
 ├── .github/agents/            # Copilot CLI agents
 ├── .codex/agents/             # Codex CLI agents
-└── docs/
-    ├── architecture/
-    ├── patterns/
-    └── kb/                    # Knowledge base content (published to Astro/Confluence)
+├── docs/
+│   ├── architecture/
+│   ├── patterns/
+│   └── kb/                    # Internal knowledge base content (not published)
+└── program-files/             # Program-of-record; published to Astro/Confluence, co-edited via Google Docs
+    ├── Mission.md
+    └── programs/              # One subdirectory per Sub-Program
+        ├── artificial-intelligence/
+        ├── business-intelligence/
+        ├── enterprise-automation/
+        └── network-intelligence/
 ```
 
 ## Commands
@@ -41,8 +48,9 @@ automation-program/
 ## Key Files
 
 - `README.md` — Project overview and tech stack summary.
-- `docs/kb/About RISE.md` — Background on RISE (the parent business-only fiber ISP).
-- `docs/kb/About Automation Program.md` — Mission, scope, and the five program functions of the Automation Program.
+- `program-files/Mission.md` — Authoritative Automation Program mission statement.
+- `program-files/programs/<sub-program>/` — One directory per Sub-Program (Artificial Intelligence, Business Intelligence, Enterprise Automation, Network Intelligence), each with its own `*.md` describing goals.
+- *(To be added)* `docs/kb/` — Knowledge base pages for RISE background, program scope, and the five program functions.
 - *(To be added)* Astro site entry points and configuration.
 - *(To be added)* Content management scripts for KB → Astro / Confluence / JIRA publishing.
 
@@ -82,6 +90,7 @@ For execution principles (planning, verification, error handling, context manage
 - **Skills (`.agents/skills/`)** — Domain knowledge, checklists, patterns, code standards. Shared across platforms.
 - **Agent specs** — Platform-specific. Added only when needed beyond the main session.
 - **`docs/`** — Source of truth for documentation. Reference, don't duplicate.
+- **`program-files/`** — Program-of-record artifacts: the Mission and per-Sub-Program directories. Edits here change program meaning AND have publishing side-effects (Astro site, Confluence pages) and co-editing side-effects (Google Docs sync). Not a documentation surface.
 
 ## Agent Architecture
 
