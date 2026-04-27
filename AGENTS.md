@@ -3,7 +3,7 @@
 ## Project
 
 - **Name:** RISE Automation Program
-- **Description:** Centralized hub for managing the RISE Automation Program — a Markdown knowledge base and workflows platform with content management scripts. The knowledge base is published as a standalone Astro site self-hosted on AWS; selected content is also published to Confluence and JIRA via the Atlassian MCP.
+- **Description:** AI-assisted platform that supports the management of the RISE Automation Program — it does not manage the program on its own. Automates routine program-management tasks (writing/maintaining opportunity docs, roadmap, analysis) over a Markdown program-of-record store. Program-of-record content under `program-files/` is published as a standalone Astro site self-hosted on AWS, published to Confluence via the Atlassian MCP, and co-edited via Google Docs through the Google Drive MCP. Jira (via the Atlassian MCP) is used for issue/ticket collaboration with program participants.
 - **Stack:** TypeScript, Node.js, Astro
 
 ## Project Structure

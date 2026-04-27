@@ -1,6 +1,6 @@
 # AUTOMATION PROGRAM
 
-This is a platform to manage the Automation Program for RISE.
+This is a platform to manage the Automation Program at RISE.
 
 ## About the Automation program
 
@@ -12,11 +12,14 @@ RISE is a business-only fiber internet ISP based in the Philippines, with a miss
 
 ## About this platform
 
-This platform serves as a centralized hub for managing the Automation Program at RISE. It provides tools and resources for:
+This platform **supports** the management of the Automation Program at RISE — it does not manage the program on its own. It acts as an AI-assisted environment that automates routine program-management tasks, including:
 
-- Collect research data and insights
-- Develop opportunities, initiatives, and objectives
-- Track performance and impact of automation efforts
+- Writing and maintaining opportunity documents
+- Maintaining the roadmap
+- Producing and updating analysis documents
+- Other content-heavy authoring and bookkeeping work that supports program decisions
+
+To support collaboration among program participants, the platform integrates with Confluence (program documentation), Jira (issues and tickets), and Google Docs (co-edited program documents).
 
 ## Sub-Programs
 

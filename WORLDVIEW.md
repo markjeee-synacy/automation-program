@@ -87,13 +87,13 @@
 
 ### Domain Boundary
 
-- **Purpose:** Covers the meaning of the platform that hosts the Automation Program — the repository itself, its AIDE-based AI Harness configuration, the knowledge base directory, architecture docs, and design patterns that together make the program operable by Developers and Agents.
+- **Purpose:** Covers the meaning of the platform that supports the management of the Automation Program — the repository itself, its AIDE-based AI Harness configuration, the program-files and knowledge base directories, architecture docs, and design patterns that together make program-management tasks operable by Developers and Agents. The Platform assists rather than replaces program management; managing the Program remains a human-led activity that the Platform automates routine portions of.
 - **In scope:** AIDE components (agents, skills, plugins, hooks, output styles), project entry files (`AGENTS.md`, `WORLDVIEW.md`, `RULES.md`, `CLAUDE.md`, `GEMINI.md`), platform documentation (`docs/architecture/`, `docs/patterns/`), the knowledge base directory (`docs/kb/`) and program-files directory (`program-files/`) as hosted content surfaces, and the pipelines that publish `program-files/` to Astro and Confluence and synchronize them with Google Docs.
 - **Out of scope:** Program semantics of KB content (Opportunities, Initiatives, KPIs) — those belong to the Automation Program domain. RISE's customer-facing products are also out of scope.
 
 ### Terminology
 
-- **Platform:** The `automation-program` repository plus its AIDE configuration, treated as a single deployable unit that serves the Automation Program.
+- **Platform:** The `automation-program` repository plus its AIDE configuration, treated as a single deployable unit. An AI-assisted environment that supports program-management work by automating routine tasks (writing/maintaining opportunity docs, roadmap, analysis) and integrating with Confluence, Jira, and Google Docs for collaboration with program participants.
 - **AIDE:** The AI-assisted Development Environment framework that organizes the Platform's Agent-facing configuration into typed components, with shared canonical sources under `.agents/` and platform-specific entry points under `.claude/`, `.gemini/`, `.github/agents/`, and `.codex/agents/`.
 - **AIDE Component:** An agent, skill, plugin, hook, or output style installed into the Platform.
 - **Canonical Skill:** A skill stored under `.agents/skills/` that is shared across AI Harness platforms via symlinks or platform-specific references.
