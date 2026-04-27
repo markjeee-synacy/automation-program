@@ -30,26 +30,34 @@
 - **Maturity Assessment:** An evaluation of RISE's current state of automation capability used as the baseline for the roadmap.
 - **KPI:** A defined performance measure (cost savings, efficiency gains, error reduction) used to track the impact of an initiative.
 - **Knowledge Base (KB):** The Markdown content under `docs/kb/` that records program context, decisions, and reference material. KB content is internal — it is not published to external surfaces.
-- **Sub-Program:** A named focus area within the Automation Program. Currently four: Artificial Intelligence, Business Intelligence, Enterprise Automation, and Network Intelligence. Each Sub-Program has its own goals and may produce its own Opportunities, Initiatives, and KPIs. Sub-Program documents live under `program-files/programs/<sub-program>/` and are published to the Astro site and Confluence, and co-edited via Google Docs.
-- **Mission:** The Automation Program's stated purpose, recorded in `program-files/Mission.md`. Published to the Astro site and Confluence, and co-edited via Google Docs. The Roadmap and Sub-Programs derive their direction from the Mission.
+- **Sub-Program:** A strategic focus area within the Automation Program, recorded under `program-files/programs/<sub-program>/`. Currently four: Artificial Intelligence, Business Intelligence, Enterprise Automation, and Network Intelligence. Each Sub-Program has its own goals and may produce its own Opportunities, Initiatives, and KPIs. Published to the Astro site and Confluence, and co-edited via Google Docs.
+- **Internal Program:** A cross-cutting operational program supporting the Automation Program, recorded at the top level of `program-files/<internal-program>/` (not under `programs/`). Currently two: Framework and Architecture (enterprise standards for IT use cases, information models, terminologies, and architecture) and Upkeep (maintenance, major repair, and decommission of program implementations). Published to the Astro site and Confluence, and co-edited via Google Docs.
+- **Mission:** The Automation Program's stated purpose, recorded in `program-files/Mission.md`. Published to the Astro site and Confluence, and co-edited via Google Docs. The Roadmap, Sub-Programs, and Internal Programs derive their direction from the Mission.
+- **Analysis Document:** A research or data-analysis document recorded under `program-files/analysis/<year>/` that supports decision-making for the Automation Program (e.g., system-decommission analyses).
+- **About Document:** A descriptive context document recorded under `program-files/about/` that introduces RISE, the Automation Program, or its key management activities.
 
 ### Ontology
 
 - **Class: Program** — The Automation Program itself. The project owns exactly one.
-- **Class: Sub-Program** — A focus area within the Program. Currently four instances: Artificial Intelligence, Business Intelligence, Enterprise Automation, Network Intelligence. Recorded under `program-files/programs/<sub-program>/`.
+- **Class: Sub-Program** — A strategic focus area within the Program. Currently four instances: Artificial Intelligence, Business Intelligence, Enterprise Automation, Network Intelligence. Recorded under `program-files/programs/<sub-program>/`.
+- **Class: Internal Program** — A cross-cutting operational program supporting the Automation Program. Currently two instances: Framework and Architecture, Upkeep. Recorded at the top level of `program-files/<internal-program>/` (not under `programs/`).
 - **Class: Function** — A Program Function (one of the five). Belongs to the Program.
-- **Class: Opportunity** — Belongs to a Function (typically Opportunity Identification & Development) and is associated with a Sub-Program.
-- **Class: Initiative** — Derived from an approved Opportunity. Owned by Initiative Management & Cross-Functional Execution; tagged to its Sub-Program.
+- **Class: Opportunity** — Belongs to a Function (typically Opportunity Identification & Development) and is associated with a Sub-Program or Internal Program.
+- **Class: Initiative** — Derived from an approved Opportunity. Owned by Initiative Management & Cross-Functional Execution; tagged to its Sub-Program or Internal Program.
 - **Class: KPI** — Attached to an Initiative; rolls up to Performance Tracking & Continuous Improvement.
 - **Class: Roadmap Item** — Owned by Strategy & Roadmap Development; sequences Initiatives over time.
 - **Class: Mission** — The Program's stated purpose. Exactly one, recorded in `program-files/Mission.md`.
-- **Class: KB Page** — Markdown artifact under `docs/kb/`. May describe any of the above classes.
-- Program → contains → Sub-Programs.
+- **Class: Analysis Document** — Research or data-analysis artifact under `program-files/analysis/<year>/` that supports Program decisions.
+- **Class: About Document** — Descriptive context artifact under `program-files/about/` that introduces RISE, the Program, or its key activities.
+- **Class: KB Page** — Internal Markdown artifact under `docs/kb/`. May describe any of the above classes. Not published.
+- Program → contains → Sub-Programs and Internal Programs.
 - Program → produces → Roadmap (via Strategy & Roadmap Development).
 - Function → discovers → Opportunity → becomes → Initiative → measured by → KPI.
-- Sub-Program → scopes → Opportunities, Initiatives, KPIs.
-- Mission → anchors → Program direction; Sub-Programs and Roadmap derive from it.
-- KB Page → records → any class above.
+- Sub-Program and Internal Program → scope → Opportunities, Initiatives, KPIs.
+- Mission → anchors → Program direction; Sub-Programs, Internal Programs, and Roadmap derive from it.
+- Analysis Document → informs → Opportunity, Initiative, or Roadmap Item.
+- About Document → describes → Program or RISE context.
+- KB Page → records → any class above (internal use only).
 
 ### Axioms
 
@@ -62,7 +70,7 @@
 
 ### Epistemology
 
-- A claim about a Program Function is supported when it cites `docs/kb/About Automation Program.md` or a successor KB page that defines the function.
+- A claim about a Program Function is supported when it cites `program-files/about/About Automation Program.md` or a successor About Document that defines the function.
 - A claim about an Opportunity or Initiative is supported only when a KB page or workflow artifact records it; otherwise the claim is `missing`.
 - A KPI value is supported only when its definition and measurement source are both recorded; a number without a defined measurement is `unknown`.
 - Conflicts between `program-files/` content and downstream published copies (Astro, Confluence) resolve in favor of `program-files/` until reconciled explicitly. For Google Docs (co-edited), conflicts must be resolved with explicit developer direction since the sync is bidirectional.

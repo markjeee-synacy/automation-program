@@ -25,13 +25,18 @@ automation-program/
 │   ├── architecture/
 │   ├── patterns/
 │   └── kb/                    # Internal knowledge base content (not published)
-└── program-files/             # Program-of-record; published to Astro/Confluence, co-edited via Google Docs
-    ├── Mission.md
-    └── programs/              # One subdirectory per Sub-Program
-        ├── artificial-intelligence/
-        ├── business-intelligence/
-        ├── enterprise-automation/
-        └── network-intelligence/
+└── program-files/                       # Program-of-record; published to Astro/Confluence, co-edited via Google Docs
+    ├── Mission.md                       # Program mission
+    ├── about/                           # Descriptive context documents (About RISE, About the Program, Key Activities)
+    ├── analysis/                        # Research and data-analysis documents (year-bucketed)
+    │   └── 2026/
+    ├── framework-and-architecture/      # Internal Program: enterprise standards for IT, information, and architecture
+    ├── programs/                        # The four Sub-Programs
+    │   ├── artificial-intelligence/
+    │   ├── business-intelligence/
+    │   ├── enterprise-automation/
+    │   └── network-intelligence/
+    └── upkeep/                          # Internal Program: maintenance, repair, decommission of program implementations
 ```
 
 ## Commands
@@ -50,9 +55,14 @@ automation-program/
 - `README.md` — Project overview and tech stack summary.
 - `program-files/Mission.md` — Authoritative Automation Program mission statement.
 - `program-files/programs/<sub-program>/` — One directory per Sub-Program (Artificial Intelligence, Business Intelligence, Enterprise Automation, Network Intelligence), each with its own `*.md` describing goals.
-- *(To be added)* `docs/kb/` — Knowledge base pages for RISE background, program scope, and the five program functions.
+- `program-files/framework-and-architecture/Framework and Architecture.md` — Internal Program: enterprise standards for IT use cases, information models, terminologies, and architecture.
+- `program-files/upkeep/Upkeep.md` — Internal Program: maintenance, major repair, and decommission of Automation-program implementations.
+- `program-files/about/About RISE.md` — Background on RISE (the parent business-only fiber ISP).
+- `program-files/about/About Automation Program.md` — Scope and the five program functions of the Automation Program.
+- `program-files/about/Key Activities in Program Management.md` — Working notes on program-management activities.
+- `program-files/analysis/<year>/` — Research and data-analysis documents bucketed by year (e.g., 2026 Airtable usage analysis).
 - *(To be added)* Astro site entry points and configuration.
-- *(To be added)* Content management scripts for KB → Astro / Confluence / JIRA publishing.
+- *(To be added)* Content management scripts for `program-files/` → Astro / Confluence publishing and Google Docs sync.
 
 ## Environment
 
