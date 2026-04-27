@@ -27,16 +27,26 @@ automation-program/
 │   └── kb/                    # Internal knowledge base content (not published)
 └── program-files/                       # Program-of-record; published to Astro/Confluence, co-edited via Google Docs
     ├── Mission.md                       # Program mission
-    ├── about/                           # Descriptive context documents (About RISE, About the Program, Key Activities)
+    ├── Events.md                        # Pointer to the Automation Program Google Calendar
+    ├── about/                           # Descriptive context (About RISE, About the Program, Program Processes, Work Management, Key Activities)
     ├── analysis/                        # Research and data-analysis documents (year-bucketed)
     │   └── 2026/
     ├── framework-and-architecture/      # Internal Program: enterprise standards for IT, information, and architecture
     ├── programs/                        # The four Sub-Programs
     │   ├── artificial-intelligence/
     │   ├── business-intelligence/
+    │   │   └── initiatives/             # Initiative documents under this Sub-Program
     │   ├── enterprise-automation/
+    │   │   └── initiatives/
     │   └── network-intelligence/
-    └── upkeep/                          # Internal Program: maintenance, repair, decommission of program implementations
+    │       └── initiatives/
+    ├── roadmap/                         # Roadmap documents (year-bucketed: Annual + supporting drafts/trackers)
+    │   ├── 2025/
+    │   └── 2026/
+    ├── strategy/                        # Program strategy documents (Values and Principles)
+    ├── upkeep/                          # Internal Program: maintenance, repair, decommission of program implementations
+    │   └── initiatives/                 # Initiative documents under Upkeep
+    └── work-system/                     # Operational surfaces (Working Groups, Work Boards, Collaboration Channels)
 ```
 
 ## Commands
@@ -59,8 +69,18 @@ automation-program/
 - `program-files/upkeep/Upkeep.md` — Internal Program: maintenance, major repair, and decommission of Automation-program implementations.
 - `program-files/about/About RISE.md` — Background on RISE (the parent business-only fiber ISP).
 - `program-files/about/About Automation Program.md` — Scope and the five program functions of the Automation Program.
+- `program-files/about/Program Processes.md` — The Strategy, Develop, and Org Dev processes; work-item types (Story, Study, Task, Workstream); roles (Program Manager, Objective Lead, Development Lead).
+- `program-files/about/Work Management.md` — Roadmap kinds (Annual, Operational, Program, Initiative), the Initiative/Objective/Work Item structure, and how work is tracked.
 - `program-files/about/Key Activities in Program Management.md` — Working notes on program-management activities.
 - `program-files/analysis/<year>/` — Research and data-analysis documents bucketed by year (e.g., 2026 Airtable usage analysis).
+- `program-files/programs/<sub-program>/initiatives/<initiative>.md` — Initiative documents owned by the Sub-Program; one file per Initiative.
+- `program-files/upkeep/initiatives/<initiative>.md` — Initiative documents owned by the Upkeep Internal Program (e.g., Decommission).
+- `program-files/roadmap/<year>/<roadmap>.md` — Roadmap documents bucketed by year (Automation Roadmap, draft/tracker companions).
+- `program-files/strategy/Values and Principles.md` — Program-level values and principles that guide the Automation Program.
+- `program-files/work-system/Working Groups.md` — Long-lived virtual teams formed around system domains.
+- `program-files/work-system/Work Boards.md` — Index of Jira boards used to track Initiative work items.
+- `program-files/work-system/Collaboration Channels.md` — Index of Slack channels used for program collaboration.
+- `program-files/Events.md` — Pointer to the Automation Program Google Calendar (calendar ID).
 - *(To be added)* Astro site entry points and configuration.
 - *(To be added)* Content management scripts for `program-files/` → Astro / Confluence publishing and Google Docs sync.
 
@@ -73,6 +93,15 @@ automation-program/
      - **Environment variables:** Copy `.env.example` to `.env` and fill in values
      - **Setup:** `npm install`
 -->
+
+## MCP Tools
+
+The session uses MCP tools to reach external systems. Reads are routine; writes are external-facing — confirm with the developer before invoking write tools (see `RULES.md` → Publishing and Co-Editing).
+
+- **Confluence pages (also referred to as Wiki pages)** — Atlassian MCP (`mcp__claude_ai_Atlassian__*Confluence*`, plus `search` / `searchConfluenceUsingCql`). Read pages, search by CQL, and create/update pages mirrored from `program-files/`. Writes are external-facing.
+- **Jira cards/issues** — Atlassian MCP (`mcp__claude_ai_Atlassian__*Jira*`, plus `searchJiraIssuesUsingJql`). Read, search by JQL, comment, transition, link, and create issues for ticket collaboration with program participants. Writes are external-facing.
+- **Calendar events (also referred to as Google Calendar events)** — Google Calendar MCP (`mcp__claude_ai_Google_Calendar__*`). List calendars, list/get/create/update/delete events, suggest times, respond to invites. Writes are external-facing.
+- **Google Docs** — Google Drive MCP (`mcp__claude_ai_Google_Drive__*`). Read, search, create, and update Google Docs that are bidirectionally co-edited with `program-files/`. Writes are external-facing.
 
 ## Code Style
 

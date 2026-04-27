@@ -3,13 +3,17 @@
 ## Project-Specific Rules
 
 ### Program-of-Record Artifacts
-- `program-files/Mission.md` and `program-files/programs/<sub-program>/*.md` are program-of-record. Treat edits as program-meaning changes, not docs cleanup. Confirm with the developer before renaming, restructuring, or deleting.
+- `program-files/Mission.md`, `program-files/programs/<sub-program>/*.md`, and `program-files/<internal-program>/*.md` are program-of-record. Treat edits as program-meaning changes, not docs cleanup. Confirm with the developer before renaming, restructuring, or deleting.
+- Initiative Documents under `program-files/programs/<sub-program>/initiatives/` and `program-files/<internal-program>/initiatives/` are program-of-record. Same rule applies.
+- Roadmap Documents under `program-files/roadmap/<year>/`, Strategy Documents under `program-files/strategy/`, and work-system documents under `program-files/work-system/` are program-of-record. Same rule applies.
 - Adding a new Sub-Program directory under `program-files/programs/` is a worldview-affecting change. Confirm with the developer and update `WORLDVIEW.md` (Sub-Program terminology + ontology) in the same change.
+- Adding a new top-level directory under `program-files/` (e.g., a new content surface alongside `roadmap/`, `work-system/`, `strategy/`, `analysis/`) is a worldview-affecting change. Confirm with the developer and update `AGENTS.md` (project structure + key files) and `WORLDVIEW.md` (terminology + ontology) in the same change.
 
 ### Publishing and Co-Editing
 - The Atlassian MCP writes to live Confluence pages and JIRA issues. Treat any `mcp__claude_ai_Atlassian__*` write tool (create/edit/comment/transition) as an external-facing action — confirm with the developer before invoking.
 - The Google Drive MCP can read and write Google Docs that are co-edited with `program-files/`. Treat any `mcp__claude_ai_Google_Drive__*` write tool as an external-facing action — confirm with the developer before invoking.
 - `program-files/` is the source of truth for what is published to Astro and Confluence and synced with Google Docs. Never reconcile a Confluence, Astro, or Google Docs copy back to `program-files/` without explicit developer direction.
+- A `Wiki-link:` frontmatter field on a `program-files/` Markdown file points to the corresponding Confluence page. When pushing a file to Confluence, strip the YAML frontmatter and the redundant H1 (Confluence renders the page title separately) before sending the body.
 
 ### Program-Files Edits
 - Bulk renames or deletions under `program-files/` may break the Publishing Pipeline (Astro routes, Confluence pages, Google Docs sync mappings). Confirm with the developer before bulk operations.

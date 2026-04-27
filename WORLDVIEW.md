@@ -28,13 +28,35 @@
 - **Initiative:** An approved opportunity translated into structured execution work, coordinated cross-functionally to deliver measurable outcomes.
 - **Roadmap:** A phased plan that progressively develops the organization's automation capability and capacity, anchored to a defined target vision.
 - **Maturity Assessment:** An evaluation of RISE's current state of automation capability used as the baseline for the roadmap.
-- **KPI:** A defined performance measure (cost savings, efficiency gains, error reduction) used to track the impact of an initiative.
+- **Objective:** A defined outcome within an Initiative — a specific, measurable result scoped to 1-2 quarters. Owned by an Objective Lead and defined together with one or more Key Results. Objectives are planned into Annual Roadmaps and tracked in the Operational Roadmap.
+- **Key Result:** A measurable outcome that defines whether an Objective has been met. Defined alongside its Objective. Where a KPI is defined for the area, Key Results may set or change KPI targets.
+- **KPI:** A defined performance measure (cost savings, efficiency gains, error reduction) used to track impact in a domain. Where a KPI is defined for an area, Key Results may set or change its target.
+- **Process:** One of three named program processes recorded in `program-files/about/Program Processes.md` — Strategy, Develop, Org Dev — that govern how Objectives, Work Items, and change-management efforts move through the Automation Program.
+- **Strategy Process:** Process that works on Objectives through stages: Intention → Develop → Active → Done → Archived. Tracked in the AUTO project Jira timeline.
+- **Develop Process:** Process that develops an Idea to a business Impact through stages: Idea → Opportunity → Analysis → Planning → Implementation → Review → Done → Archived. Tracked in program work boards (EA, BI, NI, etc.).
+- **Org Dev Process:** Supporting change-management process applied case-by-case (stakeholder alignment, training, communication, role redesign). Currently in early stages.
+- **Work Item:** An individual unit of work that contributes to an Objective. Tracked on a Work Board and linked to its parent Objective in the Operational Roadmap. Has four kinds: Story, Study, Task, Workstream.
+- **Story:** A discrete feature or enhancement built into an application. Flows through all Develop stages and produces a deployable deliverable.
+- **Study:** An analytical effort to explore an idea or opportunity and produce a recommendation or decision. Typically concludes at Analysis.
+- **Task:** A general-purpose Work Item for data operations, maintenance, or other activities not qualifying as a Story or Study.
+- **Workstream:** A grouping container that bundles related Work Items under a shared purpose. Does not flow through Develop stages itself; provides traceability across the Stories, Studies, and Tasks within it.
+- **Program Manager:** Role accountable for defining and maintaining the Program roadmap, evaluating ideas/opportunities, monitoring program health, and evolving the program's processes.
+- **Objective Lead:** Role accountable for an Objective — milestone breakdown, schedule, forward progress, and posting status updates in the roadmap board.
+- **Development Lead:** Role accountable for a Work Item — task breakdown, schedule, forward progress, and posting updates in the program work board.
 - **Knowledge Base (KB):** The Markdown content under `docs/kb/` that records program context, decisions, and reference material. KB content is internal — it is not published to external surfaces.
 - **Sub-Program:** A strategic focus area within the Automation Program, recorded under `program-files/programs/<sub-program>/`. Currently four: Artificial Intelligence, Business Intelligence, Enterprise Automation, and Network Intelligence. Each Sub-Program has its own goals and may produce its own Opportunities, Initiatives, and KPIs. Published to the Astro site and Confluence, and co-edited via Google Docs.
 - **Internal Program:** A cross-cutting operational program supporting the Automation Program, recorded at the top level of `program-files/<internal-program>/` (not under `programs/`). Currently two: Framework and Architecture (enterprise standards for IT use cases, information models, terminologies, and architecture) and Upkeep (maintenance, major repair, and decommission of program implementations). Published to the Astro site and Confluence, and co-edited via Google Docs.
 - **Mission:** The Automation Program's stated purpose, recorded in `program-files/Mission.md`. Published to the Astro site and Confluence, and co-edited via Google Docs. The Roadmap, Sub-Programs, and Internal Programs derive their direction from the Mission.
 - **Analysis Document:** A research or data-analysis document recorded under `program-files/analysis/<year>/` that supports decision-making for the Automation Program (e.g., system-decommission analyses).
 - **About Document:** A descriptive context document recorded under `program-files/about/` that introduces RISE, the Automation Program, or its key management activities.
+- **Initiative Document:** A Markdown file that records a single Initiative, including its purpose, leads, working group, objectives, and history. Recorded under `program-files/programs/<sub-program>/initiatives/<initiative>.md` for Sub-Program initiatives or `program-files/<internal-program>/initiatives/<initiative>.md` for Internal Program initiatives.
+- **Roadmap Document:** A Markdown file that records a Roadmap (typically year-scoped). Recorded under `program-files/roadmap/<year>/<roadmap>.md`.
+- **Roadmap Kind:** One of four named roadmap views per `Work Management.md` — Annual Roadmap (yearly plan), Operational Roadmap (live Jira-tracked execution view), Program Roadmap (initiatives within a program), Initiative Roadmap (objectives within an initiative).
+- **Strategy Document:** A document recorded under `program-files/strategy/` that expresses program-level strategic stance (e.g., Values and Principles).
+- **Working Group:** A long-lived virtual team formed around a system domain (BSS, OSS, BI, NI), spanning Initiatives. Recorded in `program-files/work-system/Working Groups.md`.
+- **Work Board:** A Jira board used to track work items within an Initiative or program. Indexed in `program-files/work-system/Work Boards.md`.
+- **Collaboration Channel:** A Slack channel used for program, initiative, project, or operational collaboration. Indexed in `program-files/work-system/Collaboration Channels.md`.
+- **Wiki-link:** A frontmatter field (`Wiki-link: <url>`) on a `program-files/` Markdown file that points to the corresponding Confluence page. The frontmatter is local-only metadata; it is stripped before publishing to Confluence.
 
 ### Ontology
 
@@ -44,26 +66,48 @@
 - **Class: Function** — A Program Function (one of the five). Belongs to the Program.
 - **Class: Opportunity** — Belongs to a Function (typically Opportunity Identification & Development) and is associated with a Sub-Program or Internal Program.
 - **Class: Initiative** — Derived from an approved Opportunity. Owned by Initiative Management & Cross-Functional Execution; tagged to its Sub-Program or Internal Program.
-- **Class: KPI** — Attached to an Initiative; rolls up to Performance Tracking & Continuous Improvement.
+- **Class: Objective** — Belongs to an Initiative. Owned by an Objective Lead. Recorded within the Initiative Document.
+- **Class: Key Result** — Belongs to an Objective. Measures outcome; may set KPI targets where a KPI is defined.
+- **Class: KPI** — Attached to an Initiative or domain; rolls up to Performance Tracking & Continuous Improvement.
+- **Class: Process** — One of three: Strategy, Develop, Org Dev.
+- **Class: Work Item** — Tracked on a Work Board; contributes to an Objective. Has four kinds: Story, Study, Task, Workstream.
+- **Class: Role** — A program-management responsibility. Three named instances: Program Manager, Objective Lead, Development Lead.
 - **Class: Roadmap Item** — Owned by Strategy & Roadmap Development; sequences Initiatives over time.
 - **Class: Mission** — The Program's stated purpose. Exactly one, recorded in `program-files/Mission.md`.
 - **Class: Analysis Document** — Research or data-analysis artifact under `program-files/analysis/<year>/` that supports Program decisions.
 - **Class: About Document** — Descriptive context artifact under `program-files/about/` that introduces RISE, the Program, or its key activities.
+- **Class: Initiative Document** — Markdown artifact under `program-files/<program>/initiatives/<initiative>.md` (Sub-Program or Internal Program) that records a single Initiative.
+- **Class: Roadmap Document** — Markdown artifact under `program-files/roadmap/<year>/<roadmap>.md` that records a Roadmap. Has four kinds: Annual, Operational, Program, Initiative.
+- **Class: Strategy Document** — Markdown artifact under `program-files/strategy/` that expresses program-level strategic stance.
+- **Class: Working Group** — Virtual team scoped to a system domain. Recorded in `program-files/work-system/Working Groups.md`.
+- **Class: Work Board** — Jira board tracking work items. Indexed in `program-files/work-system/Work Boards.md`.
+- **Class: Collaboration Channel** — Slack channel for program collaboration. Indexed in `program-files/work-system/Collaboration Channels.md`.
 - **Class: KB Page** — Internal Markdown artifact under `docs/kb/`. May describe any of the above classes. Not published.
 - Program → contains → Sub-Programs and Internal Programs.
-- Program → produces → Roadmap (via Strategy & Roadmap Development).
-- Function → discovers → Opportunity → becomes → Initiative → measured by → KPI.
-- Sub-Program and Internal Program → scope → Opportunities, Initiatives, KPIs.
-- Mission → anchors → Program direction; Sub-Programs, Internal Programs, and Roadmap derive from it.
+- Program → produces → Roadmap (via Strategy & Roadmap Development); recorded as Roadmap Documents.
+- Function → discovers → Opportunity → becomes → Initiative → carries → Objectives → measured by → Key Results → may set → KPI targets.
+- Sub-Program and Internal Program → scope → Opportunities, Initiatives, KPIs; each owns Initiative Documents under its `initiatives/` subdirectory.
+- Initiative → recorded in → Initiative Document.
+- Working Group → resources → Initiatives.
+- Strategy Process → governs → Objective lifecycle (Intention → Develop → Active → Done → Archived).
+- Develop Process → governs → Work Item lifecycle (Idea → Opportunity → Analysis → Planning → Implementation → Review → Done → Archived).
+- Work Item → contributes to → Objective; → tracked on → Work Board.
+- Workstream → groups → Work Items.
+- Program Manager → manages → Program; Objective Lead → owns → Objective; Development Lead → owns → Work Item.
+- Work Board → tracks → Work Items belonging to Initiatives.
+- Collaboration Channel → enables → collaboration on Programs, Initiatives, or operations.
+- Mission → anchors → Program direction; Sub-Programs, Internal Programs, Roadmap, and Strategy Documents derive from it.
 - Analysis Document → informs → Opportunity, Initiative, or Roadmap Item.
 - About Document → describes → Program or RISE context.
+- Strategy Document → expresses → Program values and principles.
 - KB Page → records → any class above (internal use only).
 
 ### Axioms
 
 - The Automation Program serves RISE's Technology department; it is not a customer-facing program.
 - Initiatives are derived from approved Opportunities — an Initiative without a corresponding Opportunity is incomplete.
-- Every Initiative has at least one KPI; performance claims without a defined KPI are unsupported.
+- Initiatives carry one or more Objectives; each Objective is defined with one or more Key Results. Where a KPI is defined for the area, Key Results may set or change KPI targets.
+- Performance claims must reference a Key Result (and a KPI target where applicable); claims without a Key Result are `missing`.
 - The Roadmap reflects the current Maturity Assessment plus the target vision; changes to either propagate to the Roadmap.
 - Governance, Standards & Reusability constrains all other Functions — reusable frameworks and standards take precedence over one-off solutions.
 - `program-files/` (Mission and Sub-Program documents) is the system of record for what is published; downstream publishing (Astro, Confluence) and Google Docs co-editing reflect `program-files/`, not the other way around. The Knowledge Base under `docs/kb/` is internal context and is not published.
@@ -71,8 +115,14 @@
 ### Epistemology
 
 - A claim about a Program Function is supported when it cites `program-files/about/About Automation Program.md` or a successor About Document that defines the function.
-- A claim about an Opportunity or Initiative is supported only when a KB page or workflow artifact records it; otherwise the claim is `missing`.
+- A claim about an Initiative is supported when an Initiative Document under `program-files/<program>/initiatives/` records it; absent that, a KB page or workflow artifact may support the claim, otherwise the claim is `missing`.
+- A claim about an Opportunity is supported only when a KB page or workflow artifact records it; otherwise the claim is `missing`.
+- A claim about a Roadmap is supported when a Roadmap Document under `program-files/roadmap/<year>/` records it; the Operational Roadmap kind additionally references the live Jira board for in-flight status.
+- A claim about an Objective is supported when the parent Initiative Document records it (with associated Key Results).
+- A claim about a Work Item is supported by a corresponding entry on a Work Board (Jira); absent a board entry, the claim is `missing`.
+- A claim about a Process stage transition is supported when the Strategy Process (for Objectives) or Develop Process (for Work Items) reflects it.
 - A KPI value is supported only when its definition and measurement source are both recorded; a number without a defined measurement is `unknown`.
+- A Key Result is supported only when its target and measurement source are both recorded; a Key Result without a target is `unknown`.
 - Conflicts between `program-files/` content and downstream published copies (Astro, Confluence) resolve in favor of `program-files/` until reconciled explicitly. For Google Docs (co-edited), conflicts must be resolved with explicit developer direction since the sync is bidirectional.
 - Absence of a KB page about a topic is `missing`, not `false` — the program may simply not have addressed it yet.
 
