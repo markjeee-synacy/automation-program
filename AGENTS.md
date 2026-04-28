@@ -34,8 +34,9 @@ automation-program/
     ├── framework-and-architecture/      # Internal Program: enterprise standards for IT, information, and architecture
     ├── programs/                        # The four Sub-Programs
     │   ├── artificial-intelligence/
-    │   ├── business-intelligence/
     │   │   └── initiatives/             # Initiative documents under this Sub-Program
+    │   ├── business-intelligence/
+    │   │   └── initiatives/
     │   ├── enterprise-automation/
     │   │   └── initiatives/
     │   └── network-intelligence/
@@ -142,7 +143,7 @@ The main session has access to all instructions, skills, and MCP tools. Addition
 ## Gotchas
 
 - Do NOT load unless needed: full codebase, all skills at once, all agent specs.
-- Knowledge base content (`docs/kb/`) drives downstream publishing to the Astro site, Confluence, and JIRA via the Atlassian MCP. Edits to KB pages may have publishing side-effects — confirm with the developer before bulk renames or deletions.
+- `program-files/` is the program-of-record and the source for downstream publishing (Astro, Confluence) and Google Docs co-editing; bulk renames or deletions under it may break the Publishing Pipeline — confirm with the developer first. `docs/kb/` is internal-only context and is not published; edits there have no publishing side-effects but may break internal cross-references.
 
 ## Additional Context
 
