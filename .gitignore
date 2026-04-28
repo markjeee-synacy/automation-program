@@ -56,3 +56,11 @@ coverage/
 # AI Harness — local-only
 .claude/settings.local.json
 .gemini/settings.local.json
+
+# Obsidian — share vault config, ignore per-user UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspaces.json
+.obsidian/cache
+.obsidian/graph.json
+.trash/

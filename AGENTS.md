@@ -3,8 +3,8 @@
 ## Project
 
 - **Name:** RISE Automation Program
-- **Description:** AI-assisted platform that supports the management of the RISE Automation Program — it does not manage the program on its own. Automates routine program-management tasks (writing/maintaining opportunity docs, roadmap, analysis) over a Markdown program-of-record store. Program-of-record content under `program-files/` is published as a standalone Astro site self-hosted on AWS, published to Confluence via the Atlassian MCP, and co-edited via Google Docs through the Google Drive MCP. Jira (via the Atlassian MCP) is used for issue/ticket collaboration with program participants.
-- **Stack:** TypeScript, Node.js, Astro
+- **Description:** AI-assisted platform that supports the management of the RISE Automation Program — it does not manage the program on its own. Automates routine program-management tasks (writing/maintaining opportunity docs, roadmap, analysis) over a Markdown program-of-record store. The repository root is an Obsidian vault used for local Markdown authoring of `program-files/` and `docs/`. Program-of-record content under `program-files/` is published as a standalone Astro site self-hosted on AWS, published to Confluence via the Atlassian MCP, and co-edited via Google Docs through the Google Drive MCP. Jira (via the Atlassian MCP) is used for issue/ticket collaboration with program participants.
+- **Stack:** TypeScript, Node.js, Astro, Obsidian (local vault editor)
 
 ## Project Structure
 
@@ -21,6 +21,7 @@ automation-program/
 ├── .gemini/agents/            # Gemini CLI agents
 ├── .github/agents/            # Copilot CLI agents
 ├── .codex/agents/             # Codex CLI agents
+├── .obsidian/                 # Obsidian vault config (shared; per-user UI state gitignored)
 ├── docs/
 │   ├── architecture/
 │   ├── patterns/

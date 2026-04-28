@@ -40,9 +40,12 @@ Program-of-record content under `program-files/` (the Mission and per-Sub-Progra
 
 Knowledge base content under `docs/kb/` is internal context only — it is not published.
 
+Local Markdown authoring of `program-files/` and `docs/` happens in Obsidian; the repository root is an Obsidian vault. Shared vault configuration lives under `.obsidian/`; per-user UI state is gitignored.
+
 Key technologies used:
 - TypeScript
 - Node.js
 - Astro
+- Obsidian (local Markdown vault editor for `program-files/` and `docs/`)
 - MCP tool: Atlassian
 - MCP tool: Google Drive
