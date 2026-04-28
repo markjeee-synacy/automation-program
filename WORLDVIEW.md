@@ -76,7 +76,7 @@
 - **Class: Mission** — The Program's stated purpose. Exactly one, recorded in `program-files/Mission.md`.
 - **Class: Analysis Document** — Research or data-analysis artifact under `program-files/analysis/<year>/` that supports Program decisions.
 - **Class: About Document** — Descriptive context artifact under `program-files/about/` that introduces RISE, the Program, or its key activities.
-- **Class: Initiative Document** — Markdown artifact under `program-files/<program>/initiatives/<initiative>.md` (Sub-Program or Internal Program) that records a single Initiative.
+- **Class: Initiative Document** — Markdown artifact that records a single Initiative. Recorded under `program-files/programs/<sub-program>/initiatives/<initiative>.md` for Sub-Program initiatives or `program-files/<internal-program>/initiatives/<initiative>.md` for Internal Program initiatives.
 - **Class: Roadmap Document** — Markdown artifact under `program-files/roadmap/<year>/<roadmap>.md` that records a Roadmap. Has four kinds: Annual, Operational, Program, Initiative.
 - **Class: Strategy Document** — Markdown artifact under `program-files/strategy/` that expresses program-level strategic stance.
 - **Class: Working Group** — Virtual team scoped to a system domain. Recorded in `program-files/work-system/Working Groups.md`.
